@@ -1,0 +1,24 @@
+# Configuração de regras customizadas
+rules:
+  # Adicionar regras específicas
+  custom_extensions:
+    '.psd': 'Design'
+    '.ai': 'Design'
+    '.indd': 'Design'
+    '.bak': 'Backups'
+  
+  # Regras de prioridade
+  priority:
+    - condition: "size > 1000"  # arquivos > 1GB
+      folder: "Arquivos_Gigantes"
+    - condition: "extension in ['.exe', '.msi']"
+      folder: "Instaladores"
+
+# Configurações gerais
+settings:
+  auto_delete_empty_folders: true
+  create_date_subfolders: false  # criar subpastas por data
+  min_file_age_minutes: 0  # esperar X minutos antes de mover
+  exclude_folders:
+    - "System Volume Information"
+    - "$RECYCLE.BIN"
